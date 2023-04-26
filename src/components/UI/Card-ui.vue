@@ -13,14 +13,20 @@
         v-if="link"
         :to="link"
       >
-        See more</router-link>
+        See more</router-link
+      >
     </div>
-    <slot name="footer"></slot>
+    <Stats :stats="stats" />
   </div>
 </template>
 
 <script>
+import Stats from "@/components/UI/Stats-ui.vue";
+
 export default {
+  components: {
+    Stats,
+  },
   props: {
     name: {
       type: String,
@@ -36,6 +42,14 @@ export default {
     link: {
       type: String,
     },
+    info: {
+      type: Array,
+    },
+  },
+  data() {
+    return {
+      stats: this.info,
+    };
   },
 };
 </script>
