@@ -1,5 +1,7 @@
-import { createRouter,
- createWebHashHistory} from "vue-router";
+import {
+  createRouter,
+  createWebHashHistory
+} from "vue-router";
 
 const routerHistory = createWebHashHistory();
 
@@ -8,7 +10,7 @@ import AboutPage from './page/About-page.vue';
 import NotFound from './page/NotFound-page.vue';
 import Item from './page/ItemAlias-page.vue';
 
-const routers = createRouter({
+const router = createRouter({
   history: routerHistory,
   routes: [
     {
@@ -27,12 +29,15 @@ const routers = createRouter({
       component: Item,
     },
     {
-      path: '/:CatchAll(.*)',
+      path: '/404',
       name: '404',
       component: NotFound,
     },
-    
+    {
+      path: '/:CatchAll(.*)',
+      redirect: '/404'
+    }
   ]
 })
 
-export default routers;
+export default router;

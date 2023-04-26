@@ -31,6 +31,10 @@ export default {
     const item = items.find((el) => el.alias === alias);
 
     this.item = item;
+
+    if (!item) {
+      this.$router.replace({ path: "/404" });
+    }
   },
 };
 </script>
